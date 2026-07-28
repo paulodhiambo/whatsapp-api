@@ -1,0 +1,227 @@
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "254710708505",
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "header": {
+      "type": "text",
+      "text": "✅ Verification Successful"
+    },
+    "body": {
+      "text": "Welcome to Paperplast. How can I assist you today?"
+    },
+    "footer": {
+      "text": "Select an option below"
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "orders",
+            "title": "Orders"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "financial_info",
+            "title": "Financial Info"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "complaints",
+            "title": "Complaints"
+          }
+        }
+      ]
+    }
+  }
+},
+
+// Financial
+
+
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "254710708505",
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "header": {
+      "type": "text",
+      "text": "✅ Verification Successful"
+    },
+    "body": {
+      "text": "Welcome to Paperplast. How can I assist you today?"
+    },
+    "footer": {
+      "text": "Select an option below"
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "statement_status",
+            "title": "Statement"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "payment_status",
+            "title": "Payment"
+          }
+        }
+      ]
+    }
+  }
+},
+// ParentOrders
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "254710708505",
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "header": {
+      "type": "text",
+      "text": "✅ Verification Successful"
+    },
+    "body": {
+      "text": "Welcome to Paperplast. How can I assist you today?"
+    },
+    "footer": {
+      "text": "Select an option below"
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "orders_v2",
+            "title": "Orders"
+          }
+        },
+                {
+          "type": "reply",
+          "reply": {
+            "id": "deliver_status",
+            "title": "Delivery Status"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "product_list",
+            "title": "Products List"
+          }
+        }
+      ]
+    }
+  }
+},
+
+
+// ChildOrders
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "254710708505",
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "header": {
+      "type": "text",
+      "text": "✅ Verification Successful"
+    },
+    "body": {
+      "text": "Welcome to Paperplast. How can I assist you today?"
+    },
+    "footer": {
+      "text": "Select an option below"
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "place_order",
+            "title": "Place Order"
+          }
+        },
+                {
+          "type": "reply",
+          "reply": {
+            "id": "order_status",
+            "title": "Order Status"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "query_document",
+            "title": "Query Document"
+          }
+        }
+      ]
+    }
+  }
+},
+
+
+
+// Query Document
+
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "254710708505",
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "header": {
+      "type": "text",
+      "text": "✅ Verification Successful"
+    },
+    "body": {
+      "text": "Welcome to Paperplast. How can I assist you today?"
+    },
+    "footer": {
+      "text": "Select an option below"
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "shipment",
+            "title": "Shipment"
+          }
+        },
+                {
+          "type": "reply",
+          "reply": {
+            "id": "sales_invoice",
+            "title": "Sales Invoice"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "sales_order",
+            "title": "Sales Order"
+          }
+        }
+      ]
+    }
+  }
+},
+

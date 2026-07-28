@@ -1,0 +1,79 @@
+{{- if .Values.ingress.enabled }}
+{{- $host := printf "%s.%s" .Release.Name .Values.ingress.baseDomain }}
+{{- if .Values.ingress.auth.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: authentik-server-proxy
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ExternalName
+  externalName: authentik-server.authentik.svc.cluster.local
+  ports:
+  - port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-authbypass
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+  - hosts:
+    - {{ $host }}
+    secretName: {{ .Release.Name }}-tls
+  rules:
+  - host: {{ $host }}
+    http:
+      paths:
+      - path: /outpost.goauthentik.io
+        pathType: Prefix
+        backend:
+          service:
+            name: authentik-server-proxy
+            port:
+              number: 80
+      - path: /static
+        pathType: Prefix
+        backend:
+          service:
+            name: authentik-server-proxy
+            port:
+              number: 80
+---
+{{- end }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    {{- if .Values.ingress.auth.enabled }}
+    traefik.ingress.kubernetes.io/router.middlewares: authentik-authentik-forwardauth@kubernetescrd
+    {{- end }}
+spec:
+  ingressClassName: traefik
+  tls:
+  - hosts:
+    - {{ $host }}
+    secretName: {{ .Release.Name }}-tls
+  rules:
+  - host: {{ $host }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}
+            port:
+              number: {{ .Values.service.port }}
+{{- end }}

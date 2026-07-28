@@ -1,0 +1,11 @@
+.env
+bc.js
+test.js
+node_modules/
+myfile.js
+.vercel
+README.md
+test/
+/services/BCWEBHOOK.JS
+data/sessions.db
+data/sessions.db-*
