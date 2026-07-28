@@ -35,3 +35,16 @@ probes:
     initialDelaySeconds: 5
     periodSeconds: 10
     failureThreshold: 3
+
+# Custom environment variables for the application
+env: []
+# - name: PORT
+#   value: "3000"
+# - name: SESSION_TTL_MS
+#   value: "21600000"
+
+# References to ConfigMaps/Secrets for environment variables (like DATABASE_URL or secrets)
+envFrom:
+  - secretRef:
+      name: whatsapp-api-secrets
+
