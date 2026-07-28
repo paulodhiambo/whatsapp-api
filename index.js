@@ -13,8 +13,8 @@ app.use(express.json({
 }));
 
 const PORT         = process.env.PORT || 3000;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-const APP_SECRET   = process.env.APP_SECRET;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN?.trim();
+const APP_SECRET   = process.env.APP_SECRET?.trim();
 
 if (!VERIFY_TOKEN) {
     console.warn("⚠️  VERIFY_TOKEN is not set. Webhook verification is disabled.");
@@ -62,9 +62,9 @@ app.get(["/favicon.ico", "/favicon.png"], (_req, res) => {
 });
 
 app.get("/webhook", (req, res) => {
-    const mode      = req.query["hub.mode"];
-    const token     = req.query["hub.verify_token"];
-    const challenge = req.query["hub.challenge"];
+    const mode      = req.query["hub.mode"] || req.query["hub_mode"];
+    const token     = req.query["hub.verify_token"] || req.query["hub_verify_token"];
+    const challenge = req.query["hub.challenge"] || req.query["hub_challenge"];
 
     console.log(`[WEBHOOK_VERIFY] Incoming token: ${JSON.stringify(token)} (length: ${token?.length}), Server VERIFY_TOKEN: ${JSON.stringify(VERIFY_TOKEN)} (length: ${VERIFY_TOKEN?.length})`);
 
