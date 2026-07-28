@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: ghcr.io/paulodhiambo/whatsapp-api
   pullPolicy: IfNotPresent
-  tag: 9a3151c
+  tag: eccf83b
 
 service:
   type: ClusterIP
